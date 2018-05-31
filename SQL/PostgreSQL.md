@@ -1,0 +1,73 @@
+# PostgreSQL
+
+## ~/.pgpass format (remember to chmod 600)
+
+~~~
+hostname:port:database:username:password
+~~~
+
+## Create user with a password
+
+~~~
+$ createuser -P USERNAME
+~~~
+
+## Create a database while setting a user as owner
+
+~~~
+$ createdb -O USERNAME DATABASE
+~~~
+
+## Delete a database
+
+
+~~~
+$ drodb DATABASE
+~~~
+
+## Delete a user
+
+~~~
+$ dropuser USERNAME
+~~~
+
+## List users
+
+~~~
+=# \du
+~~~
+
+## List databases
+
+~~~
+$ psql -l
+~~~
+
+~~~
+=# \l
+~~~
+
+with details (size, tablespace, description)
+
+~~~
+=# \l+
+~~~
+
+## List tables
+
+~~~
+DB=# \d
+~~~
+
+with details (size and description)
+
+~~~
+DB=# \d+
+~~~
+
+## Show/hide the request timer
+
+~~~
+=# \timing
+~~~
+
