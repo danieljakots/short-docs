@@ -1,3 +1,3 @@
 # Short docs
 
-Trivial stuff that one doesn't do often enough to remember.
+Trivial stuff that I don't do often enough to remember.
