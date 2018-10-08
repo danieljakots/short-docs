@@ -1,0 +1,23 @@
+## Physical Volumes
+
+~~~
+# pvcreate /dev/sda1
+# pvdisplay
+~~~
+
+## Volume Groups
+
+~~~
+# vgcreate VG_NAME /dev/sda1
+# vgdisplay
+~~~
+
+## Logical Volumes
+
+~~~
+# lvcreate -L50G -nVM_NAME VG_NAME
+# lvdisplay
+# lvremove -v /dev/VG_NAME/VM_NAME
+~~~
+
+
