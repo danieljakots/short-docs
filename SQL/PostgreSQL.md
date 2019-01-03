@@ -65,6 +65,12 @@ with details (size and description)
 DB=# \d+
 ~~~
 
+## Print the schema for TABLE (aka *describe TABLE* in MySQL land)
+
+~~~
+DB=# \d+ TABLE
+~~~
+
 ## Show/hide the request timer
 
 ~~~
