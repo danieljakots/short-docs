@@ -8,7 +8,7 @@ virt-install --connect=qemu:///system \
   --disk path=/dev/ssd/VMNAME,bus=virtio,io=threads,cache=none,format=raw \
   --network=bridge:br0,model=virtio \
   --noautoconsole --graphics vnc,listen=127.0.0.1,keymap=en-us \
-  --cdrom=/home/danj/install63.iso
+  --cdrom=/home/danj/install65.iso
 
 ~~~
 
