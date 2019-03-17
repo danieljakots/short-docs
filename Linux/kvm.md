@@ -28,11 +28,20 @@ virt-install --connect=qemu:///system \
 
 ## Misc
 
-### Get VNC port
+### VNC connection
+
+Get the vnc port
 
 ~~~
 virsh qemu-monitor-command VM --hmp "info vnc"
 ~~~
+
+Connect through the kvm server
+
+~~~
+$ vncviewer -via kvm 127.0.0.1:5903
+~~~
+
 
 ### CD rom for installation
 
