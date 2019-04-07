@@ -77,3 +77,8 @@ DB=# \d+ TABLE
 =# \timing
 ~~~
 
+## Change table ownership
+
+~~~
+=# ALTER TABLE table OWNER TO user;
+~~~
