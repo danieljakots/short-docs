@@ -18,6 +18,7 @@
 # lvcreate -L50G -nVM_NAME VG_NAME
 # lvdisplay
 # lvremove -v /dev/VG_NAME/VM_NAME
+# lvrename VG_NAME OLD_NAME NEW_NAME
 ~~~
 
 
