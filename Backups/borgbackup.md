@@ -33,3 +33,11 @@ $ borg extract --list --dry-run ::hostname.example.com-2019-02-07T05:10:02 etc/s
 # to remove "etc/ssl" from the path of the file it will create
 $ borg extract --list --strip-components 2 --dry-run ::hostname.example.com-2019-02-07T05:10:02 etc/ssl
 ~~~
+
+## Remove some backups
+
+To clear some space
+
+~~~
+$ borg delete ::hostname-2019-04-21T28:10:02
+~~~
