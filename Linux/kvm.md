@@ -1,3 +1,38 @@
+## KVM install
+
+### Install packages
+
+~~~
+# apt install qemu-kvm bridge-utils qemu-utils libvirt-daemon-system libvirt-clients virtinst
+# kvm-ok # to check hw virt is enabled
+~~~
+
+### Configure network
+
+Configure a bridge
+
+~~~
+# /etc/netplan/50-cloud-init.yaml should be
+network
+    ethernets:
+        eno1:
+            dhcp4: false
+    version: 2
+    bridges:
+      br0:
+        interfaces: [eno1]
+        mtu: 1500
+        dhcp4: yes
+~~~
+
+then apply
+
+~~~
+# netplan generate
+# netplan --debug apply
+# ifconfig # check br0
+~~~
+
 ## virt-install
 
 ~~~
