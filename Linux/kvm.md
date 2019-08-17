@@ -37,10 +37,11 @@ Get the vnc port
 virsh qemu-monitor-command VM --hmp "info vnc"
 ~~~
 
-Connect through the kvm server
+Connect through the kvm server (requires ssnvc package)
 
 ~~~
-$ vncviewer -via kvm 127.0.0.1:5903
+$ vncviewer -via kvm 127.0.0.1:5903 # on OpenBSD
+$ /usr/lib/ssvnc/vncviewer  -via kvm 127.0.0.1:5903 # on Ubuntu
 ~~~
 
 
