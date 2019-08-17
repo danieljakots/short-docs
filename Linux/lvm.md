@@ -20,6 +20,7 @@
 # lvremove -v /dev/VG_NAME/VM_NAME
 # lvrename VG_NAME OLD_NAME NEW_NAME
 # lvextend -r -L+10G  /dev/VG_NAME/VM_NAME
+# lvextend -r -l+100%FREE  /dev/VG_NAME/VM_NAME
 ~~~
 
 
