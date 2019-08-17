@@ -13,7 +13,7 @@ Configure a bridge
 
 ~~~
 # /etc/netplan/50-cloud-init.yaml should be
-network
+network:
     ethernets:
         eno1:
             dhcp4: false
