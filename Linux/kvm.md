@@ -105,3 +105,10 @@ It's not just "us" but "en-us"
 ~~~
 <graphics type='vnc' port='-1' autoport='yes' listen='127.0.0.1' keymap='en-us'>
 ~~~
+
+### Copy qcow2 with rsync
+
+~~~
+$ rsync -SPv /home/vm/VM.qcow2 kvm2:/home/vm/ # initial copy
+$ rsync -Pv --inplace /home/vm/testobsd.qcow2 kvm2:/home/vm/ # update copy
+~~~
