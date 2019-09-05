@@ -55,7 +55,6 @@ virt-install --connect=qemu:///system \
   --network=bridge:br0,model=virtio,mac=52:54:00:no:no:pe \
   --noautoconsole --graphics vnc,listen=127.0.0.1,keymap=en-us \
   --cdrom=/home/danj/install66.iso
-
 ~~~
 
 ## Virsh commands
