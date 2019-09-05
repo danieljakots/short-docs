@@ -52,9 +52,8 @@ virt-install --connect=qemu:///system \
   --ram=MRAM \
   --disk path=/dev/ssd/VMNAME,bus=virtio,io=threads,cache=none,format=raw \
   --disk path=/home/vm/VMNAME.qcow2,bus=virtio,cache=none,size=35,format=qcow2 \
-  --network=bridge:br0,model=virtio \
+  --network=bridge:br0,model=virtio,mac=52:54:00:no:no:pe \
   --noautoconsole --graphics vnc,listen=127.0.0.1,keymap=en-us \
-  --network mac=52:54:00:no:no:pe \
   --cdrom=/home/danj/install66.iso
 
 ~~~
