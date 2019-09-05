@@ -33,6 +33,16 @@ then apply
 # ifconfig # check br0
 ~~~
 
+To delete virbr0
+
+~~~
+# virsh net-list
+# virsh net-destroy default
+# virsh net-undefine default
+# service libvirtd restart
+# ifconfig
+~~~
+
 ## virt-install
 
 ~~~
