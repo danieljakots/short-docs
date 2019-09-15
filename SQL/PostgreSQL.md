@@ -22,7 +22,7 @@ $ createdb -O USERNAME DATABASE
 
 
 ~~~
-$ drodb DATABASE
+$ dropdb DATABASE
 ~~~
 
 ## Delete a user
