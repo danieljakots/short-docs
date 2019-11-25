@@ -69,6 +69,7 @@ virt-install --connect=qemu:///system \
 # virsh autostart [--disable] VM
 # virsh dumpxml VM > VM.xml && virsh define VM.xml
 # virsh undefine VM
+# virsh define /etc/libvirt/qemu/VM.xml
 ~~~
 
 ## Misc
