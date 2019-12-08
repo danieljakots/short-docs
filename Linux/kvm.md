@@ -101,7 +101,7 @@ $ /usr/lib/ssvnc/vncviewer  -via kvm 127.0.0.1:5903 # on Ubuntu
     <disk type='file' device='cdrom'>
       <driver name='qemu' type='raw'/>
       <source file='/home/iso/install61.iso'/>
-      <target dev='hda' bus='ide'/>
+      <target dev='sda' bus='sata'/>
       <readonly/>
       <address type='drive' controller='0' bus='0' target='0' unit='0'/>
     </disk>
