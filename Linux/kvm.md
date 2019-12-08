@@ -95,6 +95,8 @@ $ /usr/lib/ssvnc/vncviewer  -via kvm 127.0.0.1:5903 # on Ubuntu
 ~~~
     <os>
       <type arch='x86_64' machine='pc-0.12'>hvm</type>
+      <!-- add this line -->
+      <boot dev='cdrom'/>
       <boot dev='hd'/>
     </os>
 [...]
