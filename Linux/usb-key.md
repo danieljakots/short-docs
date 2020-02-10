@@ -5,7 +5,7 @@
 ~~~
 $ lsblk
 $ sudo cryptsetup -v luksFormat DEVICE
-$ sudo cryptsetup luksOpen /dev/sdb cryptname
+$ sudo cryptsetup luksOpen DEVICE cryptname
 $ sudo pvcreate /dev/mapper/cryptname
 $ sudo vgcreate VGNAME /dev/mapper/cryptname
 $ sudo lvcreate -L2G -n LVNAME VGNAME
