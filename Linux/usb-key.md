@@ -1,4 +1,4 @@
-# Encrypt a usb key and format it
+# Encrypt a usb key and format it (with lvm)
 
 ## Initial setup
 
@@ -6,6 +6,9 @@
 $ lsblk
 $ sudo cryptsetup -v luksFormat DEVICE
 $ sudo cryptsetup luksOpen /dev/sdb cryptname
+$ sudo pvcreate /dev/mapper/cryptname
+$ sudo vgcreate VGNAME /dev/mapper/cryptname
+$ sudo lvcreate -L2G -n LVNAME VGNAME
 $ ls -l /dev/mapper/cryptname
 $ sudo mkfs.ext4 /dev/mapper/cryptname
 $ sudo mount /dev/mapper/cryptname /mnt/
@@ -15,6 +18,7 @@ $ sudo mount /dev/mapper/cryptname /mnt/
 
 ~~~
 $ sudo umount /mnt
+$ sudo vgchange -a n VGNAME
 $ sudo cryptsetup luksClose cryptname
 ~~~
 
