@@ -9,9 +9,9 @@ $ sudo cryptsetup luksOpen DEVICE cryptname
 $ sudo pvcreate /dev/mapper/cryptname
 $ sudo vgcreate VGNAME /dev/mapper/cryptname
 $ sudo lvcreate -L2G -n LVNAME VGNAME
-$ ls -l /dev/mapper/cryptname
-$ sudo mkfs.ext4 /dev/mapper/cryptname
-$ sudo mount /dev/mapper/cryptname /mnt/
+$ ls -l /dev/VGNAME/LVNAME
+$ sudo mkfs.ext4 /dev/VGNAME/LVNAME
+$ sudo mount /dev/VGNAME/LVNAME /mnt/
 ~~~
 
 ## umount
