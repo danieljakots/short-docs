@@ -82,3 +82,9 @@ DB=# \d+ TABLE
 ~~~
 =# ALTER TABLE table OWNER TO user;
 ~~~
+
+## Show current number of connections
+
+~~~
+=# SELECT sum(numbackends) FROM pg_stat_database;
+~~~
