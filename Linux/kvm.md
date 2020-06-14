@@ -123,3 +123,18 @@ It's not just "us" but "en-us"
 $ rsync -SPv /home/vm/VM.qcow2 kvm2:/home/vm/ # initial copy
 $ rsync -Pv --inplace /home/vm/testobsd.qcow2 kvm2:/home/vm/ # update copy
 ~~~
+
+### Resize a disk
+
+~~~
+kvm# lvextend -L+6G  /dev/ubuntu-vg/VM
+vm# lsblk # check the disk size is good and/or reboot
+vm# parted /dev/vda # then p, resizepart, number, 100%, p
+vm# cryptsetup resize dm_crypt-0 -v
+vm# pvdisplay
+vm# pvresize /dev/mapper/dm_crypt-0
+vm# pvdisplay
+vm# df -h
+vm# lvextend -r -l+100%FREE  /dev/ubuntu-vg/ubuntu-lv
+vm# df -h
+~~~
