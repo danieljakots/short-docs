@@ -138,3 +138,9 @@ vm# df -h
 vm# lvextend -r -l+100%FREE  /dev/ubuntu-vg/ubuntu-lv
 vm# df -h
 ~~~
+
+### Create a qcow with a specific size
+
+~~~
+# qemu-img create -o cluster_size=8K -f qcow2 test0.qcow2 1G
+~~~
