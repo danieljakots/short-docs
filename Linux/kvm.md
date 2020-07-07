@@ -36,10 +36,7 @@ then apply
 To delete virbr0
 
 ~~~
-# virsh net-list
-# virsh net-destroy default
-# virsh net-undefine default
-# service libvirtd restart
+# virsh net-list && virsh net-destroy default && virsh net-undefine default && service libvirtd restart
 # ifconfig
 ~~~
 
