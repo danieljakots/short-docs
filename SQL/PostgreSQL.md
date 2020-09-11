@@ -9,26 +9,26 @@ hostname:port:database:username:password
 ## Create user with a password
 
 ~~~
-$ createuser -P USERNAME
+$ createuser -U postgres -P USERNAME
 ~~~
 
 ## Create a database while setting a user as owner
 
 ~~~
-$ createdb -O USERNAME DATABASE
+$ createdb -U postgres -O USERNAME DATABASE
 ~~~
 
 ## Delete a database
 
 
 ~~~
-$ dropdb DATABASE
+$ dropdb -U postgres DATABASE
 ~~~
 
 ## Delete a user
 
 ~~~
-$ dropuser USERNAME
+$ dropuser -U postgres USERNAME
 ~~~
 
 ## List users
