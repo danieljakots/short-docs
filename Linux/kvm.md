@@ -12,7 +12,7 @@
 Configure a bridge
 
 ~~~
-# /etc/netplan/50-cloud-init.yaml should be
+# /etc/netplan/00-installer-config.yaml should be
 network:
     ethernets:
         eno1:
