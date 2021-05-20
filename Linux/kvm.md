@@ -23,6 +23,13 @@ network:
         interfaces: [eno1]
         mtu: 1500
         dhcp4: yes
+        accept-ra: false
+        addresses:
+          - 2001:db8:b8e:10::30/64
+        gateway6: 2001:db8:b8e:10::1
+        nameservers:
+          addresses: [2001:db8:b8e:10::1]
+          search: [example.com]
 ~~~
 
 then apply
