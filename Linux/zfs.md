@@ -39,3 +39,10 @@ p
 # zpool scrub zpool0
 # zfs list -o space
 ~~~
+
+## Resize
+
+~~~
+# zpool online -e zpool1 vdb
+# zpool list -v # check resize
+~~~
