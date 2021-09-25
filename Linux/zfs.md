@@ -40,9 +40,16 @@ p
 # zfs list -o space
 ~~~
 
-## Resize
+## Resize a pool
 
 ~~~
 # zpool online -e zpool1 vdb
 # zpool list -v # check resize
+~~~
+
+## zvol
+
+~~~
+# zfs create -V 50G zpool0/zvol1
+# zfs set volsize=75G zpool0/zvol1
 ~~~
