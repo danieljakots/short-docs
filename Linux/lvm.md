@@ -3,6 +3,7 @@
 ~~~
 # pvcreate /dev/sda1
 # pvdisplay
+# pvresize /dev/sda1
 ~~~
 
 ## Volume Groups
