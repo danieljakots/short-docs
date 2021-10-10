@@ -29,6 +29,7 @@ p
 # zfs create -omountpoint=/data/bleh zpool0/data/bleh
 # apt install nfs-kernel-server
 # zfs set sharenfs="ro=@198.51.100.12/32" zpool0/data/bleh
+# zfs set sharenfs="rw=@192.0.2.122/32,rw=@203.0.113.121/32" zpool1/data/blah
 # zfs set sharenfs="no_root_squash,rw=@198.51.100.13/32" zpool0/data/whatever
 # mount -t nfs -o nfsvers=3 198.51.100.14:/data/bleh /mnt
 ~~~
