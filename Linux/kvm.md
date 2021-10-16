@@ -58,7 +58,8 @@ virt-install --connect=qemu:///system \
   --disk path=/home/vm/VMNAME.qcow2,bus=virtio,cache=none,size=35,format=qcow2 \
   --network=bridge:br0,model=virtio,mac=52:54:00:no:no:pe \
   --noautoconsole --graphics vnc,listen=127.0.0.1,port=5901,keymap=en-us \
-  --cdrom=/var/lib/libvirt/images/install66.iso
+  --cdrom=/var/lib/libvirt/images/install66.iso \
+  --os-variant=ubuntu21.04
 ~~~
 
 ## Virsh commands
