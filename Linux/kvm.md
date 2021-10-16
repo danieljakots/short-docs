@@ -58,7 +58,7 @@ virt-install --connect=qemu:///system \
   --disk path=/home/vm/VMNAME.qcow2,bus=virtio,cache=none,size=35,format=qcow2 \
   --network=bridge:br0,model=virtio,mac=52:54:00:no:no:pe \
   --noautoconsole --graphics vnc,listen=127.0.0.1,keymap=en-us \
-  --cdrom=/home/danj/install66.iso
+  --cdrom=/var/lib/libvirt/images/install66.iso
 ~~~
 
 ## Virsh commands
@@ -106,7 +106,7 @@ $ /usr/lib/ssvnc/vncviewer  -via kvm 127.0.0.1:5903 # on Ubuntu
 [...]
     <disk type='file' device='cdrom'>
       <driver name='qemu' type='raw'/>
-      <source file='/home/iso/install61.iso'/>
+      <source file='/var/lib/libvirt/images/install61.iso'/>
       <target dev='sda' bus='sata'/>
       <readonly/>
       <address type='drive' controller='0' bus='0' target='0' unit='0'/>
