@@ -17,3 +17,9 @@
 ~~~
 # cryptsetup resize cryptname -v
 ~~~
+
+## Check passphrase
+
+~~~
+# cryptsetup luksOpen --test-passphrase /dev/nvme0n1p3
+~~~
