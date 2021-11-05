@@ -54,3 +54,10 @@ p
 # zfs create -V 50G zpool0/zvol1
 # zfs set volsize=75G zpool0/zvol1
 ~~~
+
+## send/receive
+
+~~~
+# zfs snapshot zpool0/zvol/bleh@backup
+# zfs send zpool0/zvol/bleh@backup | ssh zfs1 "zfs recv zpool1/zvol/bleh"
+~~~
