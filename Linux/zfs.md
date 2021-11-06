@@ -60,4 +60,6 @@ p
 ~~~
 # zfs snapshot zpool0/zvol/bleh@backup
 # zfs send zpool0/zvol/bleh@backup | ssh zfs1 "zfs recv zpool1/zvol/bleh"
+# zfs snapshot zpool0/zvol/bleh@backup2
+# zfs send -I zpool0/zvol/bleh@backup zpool0/zvol/bleh@backup2 | ssh zfs1 "zfs recv zpool1/zvol/bleh"
 ~~~
