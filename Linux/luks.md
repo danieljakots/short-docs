@@ -9,7 +9,7 @@
 ## Decrypt container
 
 ~~~
-# cryptsetup luksOpen /dev/bleh cryptnane
+# cryptsetup luksOpen /dev/bleh cryptname
 ~~~
 
 ## Resize container
