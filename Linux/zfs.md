@@ -69,5 +69,5 @@ p
 ~~~
 sender# zfs send -v zpool1/data/jeancanard@eldindono | ssh -4 receiver "zfs recv -v -s zpool0/zfs1/data/jeancanard"
 receiver# zfs get receive_resume_token zpool0/zfs1/data/jeancanard
-sender# zfs send -v -t SUPERLONGTOKEN | ssh -4 receiver "zfs recv -v -s zpool0/zfs1/data/jeancanard"
+sender# zfs send -v -t SUPERLONGTOKEN | pv --quiet --rate-limit 1M | ssh -4 receiver "zfs recv -v -s zpool0/zfs1/data/jeancanard"
 ~~~
