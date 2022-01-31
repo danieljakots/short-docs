@@ -63,3 +63,11 @@ p
 # zfs snapshot zpool0/zvol/bleh@backup2
 # zfs send -I zpool0/zvol/bleh@backup zpool0/zvol/bleh@backup2 | ssh zfs1 "zfs recv zpool1/zvol/bleh"
 ~~~
+
+### resumable send/receive
+
+~~~
+sender# zfs send -v zpool1/data/jeancanard@eldindono | ssh -4 receiver "zfs recv -v -s zpool0/zfs1/data/jeancanard"
+receiver# zfs get receive_resume_token zpool0/zfs1/data/jeancanard
+sender# zfs send -v -t SUPERLONGTOKEN | ssh -4 receiver "zfs recv -v -s zpool0/zfs1/data/jeancanard"
+~~~
