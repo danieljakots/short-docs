@@ -54,7 +54,7 @@ virt-install --connect=qemu:///system \
   --name=VMNAME \
   --cpu mode=host-passthrough --vcpus=NCPU \
   --ram=MRAM \
-  --disk path=/dev/ssd/VMNAME,bus=virtio,io=threads,cache=none,format=raw \
+  --disk path=/dev/zvol/zpool0/zvol/VMNAME,bus=virtio,io=threads,cache=none,format=raw \
   --disk path=/home/vm/VMNAME.qcow2,bus=virtio,cache=none,size=35,format=qcow2 \
   --network=bridge:br0,model=virtio,mac=52:54:00:no:no:pe \
   --noautoconsole --graphics vnc,listen=127.0.0.1,port=5901,keymap=en-us \
