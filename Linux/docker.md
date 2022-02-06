@@ -6,6 +6,8 @@ $ docker tag foo:v0 reg.example.com/foo:v0 && docker push reg.example.com/foo:v0
 $ docker system df
 $ docker system prune
 $ docker system prune -a # clean really everything
+$ docker volume ls
+$ docker ps -a --filter volume=VOLUME_ID
 ~~~
 
 ## docker-compose
