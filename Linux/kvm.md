@@ -132,12 +132,12 @@ $ rsync -Pv --inplace /home/vm/testobsd.qcow2 kvm2:/home/vm/ # update copy
 ### Resize a disk
 
 ~~~
-kvm# lvextend -L+6G  /dev/ubuntu-vg/VM
-vm# lsblk # check the disk size is good and/or reboot
+kvm# zfs get volsize zpool0/zvol/prom0
+kvm# zfs set volsize=35G zpool0/zvol/prom0
+vm# lsblk # check the disk size is good and/or halt -p ; uv start prom0
 vm# parted /dev/vda # then p, resizepart, number, 100%, p
-vm# cryptsetup resize dm_crypt-0 -v
 vm# pvdisplay
-vm# pvresize /dev/mapper/dm_crypt-0
+vm# pvresize /dev/vda3
 vm# pvdisplay
 vm# df -h
 vm# lvextend -r -l+100%FREE  /dev/ubuntu-vg/ubuntu-lv
