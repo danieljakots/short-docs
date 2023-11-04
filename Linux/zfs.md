@@ -71,3 +71,33 @@ sender# zfs send -v zpool1/data/jeancanard@eldindono | ssh -4 receiver "zfs recv
 receiver# zfs get receive_resume_token zpool0/zfs1/data/jeancanard
 sender# zfs send -v -t SUPERLONGTOKEN | pv --quiet --rate-limit 1M | ssh -4 receiver "zfs recv -v -s zpool0/zfs1/data/jeancanard"
 ~~~
+
+
+### create a test pool
+
+~~~
+$ for i in {0..3} ; do truncate -s 1G $i.raw ; done
+$ ll
+total 6.2M
+-rw-rw-r-- 1 danj danj 1.0G Nov  4 11:28 0.raw
+-rw-rw-r-- 1 danj danj 1.0G Nov  4 11:28 1.raw
+-rw-rw-r-- 1 danj danj 1.0G Nov  4 11:28 2.raw
+-rw-rw-r-- 1 danj danj 1.0G Nov  4 11:28 3.raw
+# zpool create -o ashift=12 -O mountpoint=none -O compression=lz4 -O recordsize=1M -O atime=off -O exec=off -O setuid=off zpool0 mirror /tmp/zfs.MxhW/0.raw /tmp/zfs.MxhW/1.raw mirror /tmp/zfs.MxhW/2.raw /tmp/zfs.MxhW/3.raw
+# zpool status
+  pool: zpool0
+ state: ONLINE
+config:
+
+	NAME                     STATE     READ WRITE CKSUM
+	zpool0                   ONLINE       0     0     0
+	  mirror-0               ONLINE       0     0     0
+	    /tmp/zfs.MxhW/0.raw  ONLINE       0     0     0
+	    /tmp/zfs.MxhW/1.raw  ONLINE       0     0     0
+	  mirror-1               ONLINE       0     0     0
+	    /tmp/zfs.MxhW/2.raw  ONLINE       0     0     0
+	    /tmp/zfs.MxhW/3.raw  ONLINE       0     0     0
+
+errors: No known data errors
+
+~~~
