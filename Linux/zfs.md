@@ -73,7 +73,7 @@ sender# zfs send -v -t SUPERLONGTOKEN | pv --quiet --rate-limit 1M | ssh -4 rece
 ~~~
 
 
-### create a test pool
+## create a test pool
 
 ~~~
 $ for i in {0..3} ; do truncate -s 1G $i.raw ; done
@@ -99,5 +99,4 @@ config:
 	    /tmp/zfs.MxhW/3.raw  ONLINE       0     0     0
 
 errors: No known data errors
-
 ~~~
