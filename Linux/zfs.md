@@ -100,3 +100,88 @@ config:
 
 errors: No known data errors
 ~~~
+
+## Replace a faulty disk (ZABCDE4)
+
+`halt -p`, plug it physically and power on
+
+~~~
+# zpool status
+  pool: zpool1
+ state: ONLINE
+  scan: scrub repaired 0B in 06:16:30 with 0 errors on Fri Nov  3 07:51:59 2023
+config:
+
+	NAME          STATE     READ WRITE CKSUM
+	zpool1        ONLINE       0     0     0
+	  mirror-0    ONLINE       0     0     0
+	    ZABCDE1  ONLINE       0     0     0
+	    ZABCDE2  ONLINE       0     0     0
+	  mirror-1    ONLINE       0     0     0
+	    ZABCDE3  ONLINE       0     0     0
+	    ZABCDE4  ONLINE       0     0     0
+
+errors: No known data errors
+# cryptsetup luksOpen /dev/disk/by-id/ata-ST4000VN008-2DR166_ZDH9WXYZ ZDH9WXYZ
+# zpool attach zpool1 /dev/mapper/ZABCDE3 /dev/mapper/ZABCDE5
+invalid vdev specification
+use '-f' to override the following errors:
+/dev/mapper/ZABCDE5 is part of potentially active pool 'zpool0'
+# zpool attach -f zpool1 /dev/mapper/ZABCDE3 /dev/mapper/ZABCDE5
+# zpool status
+  pool: zpool1
+ state: ONLINE
+status: One or more devices is currently being resilvered.  The pool will
+	continue to function, possibly in a degraded state.
+action: Wait for the resilver to complete.
+  scan: resilver in progress since Sat Nov  4 15:54:04 2023
+	31.1G scanned at 3.89G/s, 15.3G issued at 1.91G/s, 5.33T total
+	0B resilvered, 0.28% done, 00:47:32 to go
+config:
+
+	NAME          STATE     READ WRITE CKSUM
+	zpool1        ONLINE       0     0     0
+	  mirror-0    ONLINE       0     0     0
+	    ZABCDE1  ONLINE       0     0     0
+	    ZABCDE2  ONLINE       0     0     0
+	  mirror-1    ONLINE       0     0     0
+	    ZABCDE3  ONLINE       0     0     0
+	    ZABCDE4  ONLINE       0     0     0
+	    ZABCDE5  ONLINE       0     0     0
+
+errors: No known data errors
+# zpool status
+  pool: zpool1
+ state: ONLINE
+  scan: resilvered 2.68T in 06:45:10 with 0 errors on Sat Nov  4 22:39:14 2023
+config:
+
+	NAME          STATE     READ WRITE CKSUM
+	zpool1        ONLINE       0     0     0
+	  mirror-0    ONLINE       0     0     0
+	    ZABCDE1  ONLINE       0     0     0
+	    ZABCDE2  ONLINE       0     0     0
+	  mirror-1    ONLINE       0     0     0
+	    ZABCDE3  ONLINE       0     0     0
+	    ZABCDE4  ONLINE       0     0     0
+	    ZABCDE5  ONLINE       0     0     0
+
+errors: No known data errors
+# zpool detach zpool1 ZABCDE4
+# zpool status
+  pool: zpool1
+ state: ONLINE
+  scan: scrub repaired 0B in 06:37:46 with 0 errors on Sun Nov  5 05:17:56 2023
+config:
+
+	NAME          STATE     READ WRITE CKSUM
+	zpool1        ONLINE       0     0     0
+	  mirror-0    ONLINE       0     0     0
+	    ZABCDE1  ONLINE       0     0     0
+	    ZABCDE2  ONLINE       0     0     0
+	  mirror-1    ONLINE       0     0     0
+	    ZABCDE3  ONLINE       0     0     0
+	    ZABCDE5  ONLINE       0     0     0
+
+errors: No known data errors
+~~~
