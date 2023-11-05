@@ -23,3 +23,9 @@
 ~~~
 # cryptsetup luksOpen --test-passphrase /dev/nvme0n1p3
 ~~~
+
+## Close container
+
+~~~
+# cryptsetup luksClose cryptname
+~~~
