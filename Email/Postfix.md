@@ -23,3 +23,10 @@ or
 ~~~
 # postsuper -d 8BC82528CE
 ~~~
+
+## Check config
+
+~~~
+# postconf | grep whateversetting
+# postconf > /dev/null
+~~~
