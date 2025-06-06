@@ -5,6 +5,7 @@
 ## Set the env
 
 ~~~
+$ cd /home/duplin/borg/.zfs/snapshot/zfs2-weekly-2025-06-02T00:00Z # don't tr(y|ust)ls(1)
 $ export BORG_REPO=/path/to/repo
 $ export BORG_PASSPHRASE=hunter2
 ~~~
@@ -13,6 +14,7 @@ $ export BORG_PASSPHRASE=hunter2
 
 ~~~
 $ borg list
+$ borg list --bypass-lock
 ~~~
 
 ##  List the content of one archive
