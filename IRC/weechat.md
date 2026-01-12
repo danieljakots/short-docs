@@ -12,5 +12,5 @@
 /set irc.server.example.username "danj"
 /set irc.server.example.realname "Daniel Jakots"
 /set irc.server.example.addresses "irc.example.com/7000"
-/set irc.server.example.ssl on
+/set irc.server.example.tls on
 ~~~
