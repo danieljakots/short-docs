@@ -12,6 +12,12 @@ hostname:port:database:username:password
 $ createuser -U postgres -P USERNAME
 ~~~
 
+## Change the password
+
+~~~
+psql -U postgres -c "ALTER USER <login> WITH PASSWORD '<pass>'"
+~~~
+
 ## Create a database while setting a user as owner
 
 ~~~
