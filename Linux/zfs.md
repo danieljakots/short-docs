@@ -122,7 +122,10 @@ config:
 	    ZABCDE4  ONLINE       0     0     0
 
 errors: No known data errors
-# cryptsetup luksOpen /dev/disk/by-id/ata-ST4000VN008-2DR166_ZDH9WXYZ ZDH9WXYZ
+# smartctl -i /dev/sdX # until the right disk has been found, note the Serial Number
+# cryptsetup -v luksFormat /dev/sdX
+# vim ~/bin/intdisk
+# cryptsetup luksOpen /dev/disk/by-id/ata-ST4000VN008-2DR166_ZABCDE5 ZABCDE5
 # zpool attach zpool1 /dev/mapper/ZABCDE3 /dev/mapper/ZABCDE5
 invalid vdev specification
 use '-f' to override the following errors:
